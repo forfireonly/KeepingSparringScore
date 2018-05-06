@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/red_competitor_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/blue_competitor_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/personkickingleft" />
+
+
+    <TextView
+        android:id="@+id/competitor_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_16"
+        android:layout_marginRight="@dimen/_16"
+        android:layout_marginTop="@dimen/_16"
+        android:text="@string/competitor_2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/blue_competitor_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8"
+        android:layout_marginLeft="@dimen/_64"
+        android:layout_marginStart="@dimen/_64"
+        android:layout_marginTop="@dimen/_8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.492"
+        app:srcCompat="@drawable/personkickingright" />
+
+    <Button
+        android:id="@+id/two_points_for_red_competitor"
+        android:layout_width="@dimen/_70"
+        android:layout_height="@dimen/_49"
+        android:layout_marginBottom="@dimen/_8"
+        android:layout_marginTop="@dimen/_8"
+        android:alpha="0.75"
+        android:color="@color/button"
+        android:text="@string/_2"
+        app:layout_constraintBottom_toBottomOf="@+id/blue_competitor_image"
+        app:layout_constraintStart_toStartOf="@+id/blue_competitor_image"
+        app:layout_constraintTop_toTopOf="@+id/blue_competitor_image"
+        app:layout_constraintVertical_bias="0.285" />
+
+    <Button
+        android:id="@+id/one_point_for_red_competitor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8"
+        android:layout_marginEnd="@dimen/_8"
+        android:layout_marginLeft="@dimen/_32"
+        android:layout_marginRight="@dimen/_8"
+        android:layout_marginStart="@dimen/_32"
+        android:layout_marginTop="@dimen/_8"
+        android:alpha="0.75"
+        android:color="@color/button"
+        android:text="@string/_1"
+        app:layout_constraintBottom_toBottomOf="@+id/blue_competitor_image"
+        app:layout_constraintEnd_toStartOf="@+id/one_point_for_blue_competitor"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/blue_competitor_image"
+        app:layout_constraintTop_toTopOf="@+id/blue_competitor_image"
+        app:layout_constraintVertical_bias="0.504" />
+
+    <Button
+        android:id="@+id/strike_for_red_competitor"
+        android:layout_width="@dimen/_69"
+        android:layout_height="@dimen/_101"
+        android:layout_marginBottom="@dimen/_32"
+        android:layout_marginEnd="@dimen/_8"
+        android:layout_marginLeft="@dimen/_108"
+        android:layout_marginRight="@dimen/_8"
+        android:layout_marginStart="@dimen/_108"
+        android:layout_marginTop="@dimen/_8"
+        android:alpha="0.75"
+        android:color="@color/button"
+        android:text="@string/__1"
+        app:layout_constraintBottom_toBottomOf="@+id/blue_competitor_image"
+        app:layout_constraintEnd_toStartOf="@+id/rules_review"
+        app:layout_constraintStart_toStartOf="@+id/blue_competitor_image"
+        app:layout_constraintTop_toTopOf="@+id/blue_competitor_image"
+        app:layout_constraintVertical_bias="0.845" />
+
+    <Button
+        android:id="@+id/two_points_for_blue_competitor"
+        android:layout_width="@dimen/_70"
+        android:layout_height="@dimen/_49"
+        android:layout_marginBottom="@dimen/_8"
+        android:layout_marginLeft="@dimen/_460"
+        android:layout_marginStart="@dimen/_460"
+        android:layout_marginTop="@dimen/_8"
+        android:alpha="0.75"
+        android:color="@color/button"
+        android:text="@string/_2"
+        app:layout_constraintBottom_toBottomOf="@+id/red_competitor_image"
+        app:layout_constraintEnd_toEndOf="@+id/red_competitor_image"
+        app:layout_constraintStart_toEndOf="@+id/two_points_for_red_competitor"
+        app:layout_constraintTop_toTopOf="@+id/red_competitor_image"
+        app:layout_constraintVertical_bias="0.293" />
+
+    <Button
+        android:id="@+id/one_point_for_blue_competitor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8"
+        android:layout_marginEnd="@dimen/_32"
+        android:layout_marginRight="@dimen/_32"
+        android:layout_marginTop="@dimen/_8"
+        android:alpha="0.75"
+        android:color="@color/button"
+        android:text="@string/_1"
+        app:layout_constraintBottom_toBottomOf="@+id/red_competitor_image"
+        app:layout_constraintEnd_toEndOf="@+id/red_competitor_image"
+        app:layout_constraintTop_toTopOf="@+id/red_competitor_image" />
+
+    <Button
+        android:id="@+id/strike_for_blue_competitor"
+        android:layout_width="@dimen/_69"
+        android:layout_height="@dimen/_101"
+        android:layout_marginBottom="@dimen/_8"
+        android:layout_marginEnd="@dimen/_108"
+        android:layout_marginRight="@dimen/_108"
+        android:layout_marginTop="@dimen/_168"
+        android:alpha="0.75"
+        android:color="@color/button"
+        android:text="@string/__1"
+        app:layout_constraintBottom_toBottomOf="@+id/red_competitor_image"
+        app:layout_constraintEnd_toEndOf="@+id/red_competitor_image"
+        app:layout_constraintTop_toTopOf="@+id/red_competitor_image"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <Button
+        android:id="@+id/start_keeping_score_button"
+        style="@style/CustomButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_16"
+        android:onClick="goToActivity2"
+        android:text="@string/start_keeping_score"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
+
+    <Button
+        android:id="@+id/rules_review"
+        style="@style/CustomButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_144"
+        android:layout_marginTop="@dimen/_8"
+        android:text="@string/review_score_keeping_rules"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/red_competitor_image"
+        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.357" />
+
+    <TextView
+        android:id="@+id/competitor_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_16"
+        android:layout_marginStart="@dimen/_16"
+        android:layout_marginTop="@dimen/_16"
+        android:text="@string/competitor_1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Competitor 1" />
+
+</android.support.constraint.ConstraintLayout>

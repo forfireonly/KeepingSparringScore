@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/red_competitor_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/blue_competitor_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/personkickingleft" />
+
+    <TextView
+        android:id="@+id/competitor_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Competitor 1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/competitor_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Competitor 2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/blue_competitor_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.492"
+        app:srcCompat="@drawable/personkickingright" />
+
+    <Button
+        android:id="@+id/two_points_for_red_competitor"
+        android:layout_width="70dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:alpha="0.75"
+        android:color="#66FF0000"
+        android:text="+2"
+        app:layout_constraintBottom_toBottomOf="@+id/blue_competitor_image"
+        app:layout_constraintStart_toStartOf="@+id/blue_competitor_image"
+        app:layout_constraintTop_toTopOf="@+id/blue_competitor_image"
+        app:layout_constraintVertical_bias="0.285" />
+
+    <Button
+        android:id="@+id/one_point_for_red_competitor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:alpha="0.75"
+        android:color="#66FF0000"
+        android:text="+1"
+        app:layout_constraintBottom_toBottomOf="@+id/blue_competitor_image"
+        app:layout_constraintStart_toStartOf="@+id/blue_competitor_image"
+        app:layout_constraintTop_toTopOf="@+id/blue_competitor_image"
+        app:layout_constraintVertical_bias="0.491" />
+
+    <Button
+        android:id="@+id/strike_for_red_competitor"
+        android:layout_width="83dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="8dp"
+        android:alpha="0.75"
+        android:color="#66FF0000"
+        android:text="-1"
+        app:layout_constraintBottom_toBottomOf="@+id/blue_competitor_image"
+        app:layout_constraintStart_toStartOf="@+id/blue_competitor_image"
+        app:layout_constraintTop_toTopOf="@+id/blue_competitor_image"
+        app:layout_constraintVertical_bias="0.845" />
+
+    <Button
+        android:id="@+id/two_points_for_blue_competitor"
+        android:layout_width="61dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:alpha="0.75"
+        android:color="#66FF0000"
+        android:text="+2"
+        app:layout_constraintBottom_toBottomOf="@+id/red_competitor_image"
+        app:layout_constraintEnd_toEndOf="@+id/red_competitor_image"
+        app:layout_constraintTop_toTopOf="@+id/red_competitor_image"
+        app:layout_constraintVertical_bias="0.318" />
+
+    <Button
+        android:id="@+id/one_point_for_blue_competitor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="8dp"
+        android:alpha="0.75"
+        android:color="#66FF0000"
+        android:text="+1"
+        app:layout_constraintBottom_toBottomOf="@+id/red_competitor_image"
+        app:layout_constraintEnd_toEndOf="@+id/red_competitor_image"
+        app:layout_constraintTop_toTopOf="@+id/red_competitor_image" />
+
+    <Button
+        android:id="@+id/strike_for_blue_competitor"
+        android:layout_width="72dp"
+        android:layout_height="99dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginRight="108dp"
+        android:layout_marginTop="168dp"
+        android:alpha="0.75"
+        android:color="#66FF0000"
+        android:text="-1"
+        app:layout_constraintBottom_toBottomOf="@+id/red_competitor_image"
+        app:layout_constraintEnd_toEndOf="@+id/red_competitor_image"
+        app:layout_constraintTop_toTopOf="@+id/red_competitor_image"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/name_blue_competitor"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/blue_competitor_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/name_red_competitor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/red_competitor_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <TextView
+        android:id="@+id/app_instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="124dp"
+        android:text="     Start timer\n  keep points by\nclicking contact \n         areas"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/start_keeping_score_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="goToActivity2"
+        android:text="Start keeping score"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
