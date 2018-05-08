@@ -12,7 +12,6 @@
     <string name="_0">0</string>
     <string name="strikes">Strikes</string>
     <string name="divider">:</string>
-    <string name="reset">reset</string>
     <string name="start">Start</string>
     <string name="pause">pause</string>
     <string name="resume">Resume</string>
@@ -24,4 +23,8 @@
     <string name="winner">Winner</string>
     <string name="my_toast">Please, Reset Score and Timer</string>
     <string name="next_point">Next point wins</string>
+    <string name="_2_points">2 points</string>
+    <string name="_1_point">1 point</string>
+    <string name="strike">strike</string>
+    <string name="reset">reset</string>
 </resources>

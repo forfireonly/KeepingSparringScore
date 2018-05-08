@@ -1,459 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/red_competitor_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/blue_competitor_image"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/personkickingleft" />
-
-
-    <TextView
-        android:id="@+id/competitor_two"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_16"
-        android:layout_marginRight="@dimen/_16"
-        android:layout_marginTop="@dimen/_16"
-        android:text="@string/competitor_2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/blue_competitor_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginLeft="@dimen/_56"
-        android:layout_marginStart="@dimen/_56"
-        android:layout_marginTop="@dimen/_8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478"
-        app:srcCompat="@drawable/personkickingright" />
-
-    <Button
-        android:id="@+id/two_points_for_red_competitor"
-        android:layout_width="@dimen/_70"
-        android:layout_height="@dimen/_49"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:alpha="0.75"
-        android:color="@color/button"
-        android:onClick="redScoreCountTwo"
-        android:text="@string/_2"
-        app:layout_constraintBottom_toBottomOf="@+id/blue_competitor_image"
-        app:layout_constraintStart_toStartOf="@+id/blue_competitor_image"
-        app:layout_constraintTop_toTopOf="@+id/blue_competitor_image"
-        app:layout_constraintVertical_bias="0.285"
-        tools:ignore="OnClick" />
-
-    <Button
-        android:id="@+id/one_point_for_red_competitor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_32"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_32"
-        android:layout_marginTop="@dimen/_8"
-        android:alpha="0.75"
-        android:color="@color/button"
-        android:onClick="redScoreCountOne"
-        android:text="@string/_1"
-        app:layout_constraintBottom_toBottomOf="@+id/blue_competitor_image"
-        app:layout_constraintEnd_toStartOf="@+id/one_point_for_blue_competitor"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/blue_competitor_image"
-        app:layout_constraintTop_toTopOf="@+id/blue_competitor_image"
-        app:layout_constraintVertical_bias="0.504"
-        tools:ignore="OnClick" />
-
-    <Button
-        android:id="@+id/strike_for_red_competitor"
-        android:layout_width="@dimen/_69"
-        android:layout_height="@dimen/_101"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_108"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_108"
-        android:layout_marginTop="@dimen/_8"
-        android:alpha="0.75"
-        android:color="@color/button"
-        android:onClick="redStrike"
-        android:text="@string/__1"
-        app:layout_constraintBottom_toBottomOf="@+id/blue_competitor_image"
-        app:layout_constraintStart_toStartOf="@+id/blue_competitor_image"
-        app:layout_constraintTop_toTopOf="@+id/blue_competitor_image"
-        app:layout_constraintVertical_bias="0.845"
-        tools:ignore="OnClick" />
-
-    <Button
-        android:id="@+id/two_points_for_blue_competitor"
-        android:layout_width="@dimen/_70"
-        android:layout_height="@dimen/_49"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginLeft="@dimen/_460"
-        android:layout_marginStart="@dimen/_460"
-        android:layout_marginTop="@dimen/_8"
-        android:alpha="0.75"
-        android:color="@color/button"
-        android:onClick="blueScoreCountTwo"
-        android:text="@string/_2"
-        app:layout_constraintBottom_toBottomOf="@+id/red_competitor_image"
-        app:layout_constraintEnd_toEndOf="@+id/red_competitor_image"
-        app:layout_constraintStart_toEndOf="@+id/two_points_for_red_competitor"
-        app:layout_constraintTop_toTopOf="@+id/red_competitor_image"
-        app:layout_constraintVertical_bias="0.293"
-        tools:ignore="OnClick" />
-
-    <Button
-        android:id="@+id/one_point_for_blue_competitor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginEnd="@dimen/_32"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_32"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:alpha="0.75"
-        android:color="@color/button"
-        android:onClick="blueScoreCountOne"
-        android:text="@string/_1"
-        app:layout_constraintBottom_toBottomOf="@+id/red_competitor_image"
-        app:layout_constraintEnd_toEndOf="@+id/red_competitor_image"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/red_competitor_image"
-        tools:ignore="OnClick" />
-
-    <Button
-        android:id="@+id/strike_for_blue_competitor"
-        android:layout_width="@dimen/_69"
-        android:layout_height="@dimen/_101"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginEnd="@dimen/_108"
-        android:layout_marginRight="@dimen/_108"
-        android:layout_marginTop="@dimen/_168"
-        android:alpha="0.75"
-        android:color="@color/button"
-        android:onClick="blueStrike"
-        android:text="@string/__1"
-        app:layout_constraintBottom_toBottomOf="@+id/red_competitor_image"
-        app:layout_constraintEnd_toEndOf="@+id/red_competitor_image"
-        app:layout_constraintTop_toTopOf="@+id/red_competitor_image"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="OnClick" />
-
-    <EditText
-        android:id="@+id/name_blue_competitor"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/_46"
-        android:layout_marginLeft="@dimen/_16"
-        android:layout_marginStart="@dimen/_16"
-        android:layout_marginTop="@dimen/_28"
-        android:ems="10"
-        android:hint="@string/name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/blue_competitor_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/name_red_competitor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_28"
-        android:ems="10"
-        android:hint="@string/name"
-        android:inputType="textPersonName"
-
-        app:layout_constraintBottom_toTopOf="@+id/red_competitor_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/competitor_one"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_16"
-        android:layout_marginStart="@dimen/_16"
-        android:layout_marginTop="@dimen/_16"
-        android:text="@string/competitor_1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Competitor 1" />
-
-    <TextView
-        android:id="@+id/score_view"
-        style="@style/CustomText"
-        android:layout_marginBottom="@dimen/_264"
-        android:layout_marginEnd="@dimen/_252"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_252"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:text="@string/score"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/one_point_for_blue_competitor"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.804" />
-
-    <TextView
-        android:id="@+id/score_blue_competitor"
-        style="@style/CustomText"
-        android:layout_width="@dimen/_18"
-        android:layout_height="@dimen/_45"
-        android:layout_marginBottom="@dimen/_216"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_8"
-        android:text="@string/_0"
-        app:layout_constraintBottom_toBottomOf="@+id/blue_competitor_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.381"
-        app:layout_constraintStart_toStartOf="@+id/one_point_for_red_competitor" />
-
-    <TextView
-        android:id="@+id/score_divider"
-        style="@style/CustomText"
-        android:layout_marginBottom="@dimen/_240"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:text="@string/divider"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/red_competitor_image"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toEndOf="@+id/score_blue_competitor"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/score_red_competitor"
-        style="@style/CustomText"
-        android:layout_width="@dimen/_22"
-        android:layout_height="@dimen/_41"
-        android:layout_marginBottom="@dimen/_232"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:text="@string/_0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/two_points_for_blue_competitor"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toEndOf="@+id/score_divider"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.862" />
-
-    <TextView
-        android:id="@+id/view_strikes"
-        style="@style/CustomText"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:text="@string/strikes"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score_divider"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/strike_blue_competitor"
-        style="@style/CustomText"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:text="@string/_0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398" />
-
-    <TextView
-        android:id="@+id/strike_divider"
-        style="@style/CustomText"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:text="@string/divider"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398" />
-
-    <TextView
-        android:id="@+id/strike_red_competitor"
-        style="@style/CustomText"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:text="@string/_0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.581"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398" />
-
-    <Button
-        android:id="@+id/reset"
-        style="@style/CustomButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginEnd="@dimen/_280"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_280"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:onClick="reset"
-        android:text="@string/reset"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585"
-        tools:ignore="OnClick" />
+    android:orientation="vertical"
+    tools:context=".Main2Activity">
 
     <TextView
         android:id="@+id/count_down"
         style="@style/CustomText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:text="@string/_300"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reset"
-        app:layout_constraintVertical_bias="0.443" />
+        android:layout_gravity="center_horizontal"
+        android:text="@string/_300" />
 
-    <Button
-        android:id="@+id/start"
-        style="@style/CustomButtonStyle"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:text="@string/start"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785" />
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/pause"
-        style="@style/CustomButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_16"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_24"
-        android:text="@string/pause"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        <LinearLayout
+            android:layout_width="@dimen/_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/resume"
-        style="@style/CustomButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_8"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_8"
-        android:text="@string/resume"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.661"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
+            <Button
+                android:id="@+id/start"
+                style="@style/CustomButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_16"
+                android:layout_marginRight="@dimen/_16"
+                android:onClick="timerStart"
+                android:text="@string/start" />
 
-    <Button
-        android:id="@+id/cancel"
-        style="@style/CustomButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_8"
-        android:layout_marginLeft="@dimen/_8"
-        android:layout_marginRight="@dimen/_8"
-        android:layout_marginStart="@dimen/_8"
-        android:layout_marginTop="@dimen/_24"
-        android:text="@string/cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.661"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94" />
+            <Button
+                android:id="@+id/pause"
+                style="@style/CustomButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="timerPause"
+                android:text="@string/pause" />
+        </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="@dimen/_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/resume"
+                style="@style/CustomButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_16"
+                android:onClick="timerResume"
+                android:text="@string/resume" />
+
+            <Button
+                android:id="@+id/cancel"
+                style="@style/CustomButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="timerStop"
+                android:text="@string/cancel" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10"
+            android:orientation="horizontal"
+            tools:context=".MainActivity">
+
+            <LinearLayout
+                android:layout_width="@dimen/_0"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/competitor_one"
+                    style="@style/CustomText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_8"
+                    android:text="@string/competitor_1"
+                    android:textSize="@dimen/_24s" />
+
+                <EditText
+                    android:id="@+id/name_blue_competitor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_16"
+                    android:layout_marginStart="@dimen/_16"
+                    android:layout_marginTop="@dimen/_8"
+                    android:ems="10"
+                    android:hint="@string/name" />
+
+
+                <TextView
+                    android:id="@+id/score_blue_competitor"
+                    style="@style/CustomText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/_0" />
+
+                <Button
+                    android:id="@+id/two_points_for_blue_competitor"
+                    style="@style/BlueButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_16"
+                    android:onClick="blueScoreCountTwo"
+                    android:text="@string/_2_points" />
+
+                <Button
+                    android:id="@+id/one_point_for_blue_competitor"
+                    style="@style/BlueButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="blueScoreCountOne"
+                    android:text="@string/_1_point" />
+
+
+                <TextView
+                    android:id="@+id/strike_blue_competitor"
+                    style="@style/CustomText"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/_0" />
+
+                <Button
+                    android:id="@+id/strike_for_blue_competitor"
+                    style="@style/BlueButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="blueStrike"
+                    android:text="@string/strike" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/_1"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray" />
+
+            <LinearLayout
+                android:layout_width="@dimen/_0"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/competitor_two"
+                    style="@style/CustomText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_8"
+                    android:text="@string/competitor_2"
+                    android:textSize="@dimen/_24s" />
+
+                <EditText
+                    android:id="@+id/name_red_competitor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8"
+                    android:ems="10"
+                    android:hint="@string/name" />
+
+                <TextView
+                    android:id="@+id/score_red_competitor"
+                    style="@style/CustomText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/_0" />
+
+                <Button
+                    android:id="@+id/two_points_for_red_competitor"
+                    style="@style/RedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_16"
+                    android:onClick="redScoreCountTwo"
+                    android:text="@string/_2_points" />
+
+                <Button
+                    android:id="@+id/one_point_for_red_competitor"
+                    style="@style/RedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="redScoreCountOne"
+                    android:text="@string/_1_point" />
+
+
+                <TextView
+                    android:id="@+id/strike_red_competitor"
+                    style="@style/CustomText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/_0" />
+
+                <Button
+                    android:id="@+id/strike_for_red_competitor"
+                    style="@style/RedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="redStrike"
+                    android:text="@string/strike" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/first_competitor"
+                android:layout_width="@dimen/_0"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/blue_small" />
+
+            <Button
+                android:id="@+id/reset"
+                style="@style/CustomButtonStyle"
+                android:layout_width="@dimen/_0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:onClick="reset"
+                android:text="@string/reset" />
+
+            <ImageView
+                android:id="@+id/second_competitor"
+                android:layout_width="@dimen/_0"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/red_small" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

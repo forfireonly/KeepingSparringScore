@@ -1,5 +1,6 @@
 package com.example.annascott.keepingsparringscore;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.pm.ActivityInfo;
 import android.os.CountDownTimer;
@@ -12,6 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class Main2Activity extends AppCompatActivity {
 
     int competitorBlueScore;
@@ -19,16 +23,36 @@ public class Main2Activity extends AppCompatActivity {
     int competitorBlueStrike;
     int competitorRedStrike;
 
+    @BindView(R.id.score_blue_competitor)
     TextView competitorBlueScoreView;
+    @BindView(R.id.score_red_competitor)
     TextView competitorRedScoreView;
+    @BindView(R.id.strike_blue_competitor)
     TextView competitorBlueStrikeView;
+    @BindView(R.id.strike_red_competitor)
     TextView competitorRedStrikeView;
 
+    @BindView(R.id.name_blue_competitor)
     EditText competitorBlueName;
+    @BindView(R.id.name_red_competitor)
     EditText competitorRedName;
 
+    //@BindView(R.id.name_blue)
     TextView competitorBluePopUp;
+    //@BindView(R.id.name_red)
     TextView competitorRedPopUp;
+
+    @BindView(R.id.count_down)
+    TextView tView;
+    //@BindView(R.id.start)
+    Button btnStart;
+    //@BindView(R.id.pause)
+    Button btnPause;
+    // @BindView(R.id.resume)
+    Button btnResume;
+    //@BindView(R.id.cancel)
+    Button btnCancel;
+
 
     //Declare a variable to hold count down timer's paused status
     boolean isPaused = false;
@@ -43,7 +67,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        ButterKnife.bind(this);
 
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
@@ -54,193 +78,202 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     private void initializeViews() {
-        competitorBlueScoreView = findViewById(R.id.score_blue_competitor);
-        competitorRedScoreView = findViewById(R.id.score_red_competitor);
-        competitorBlueStrikeView = findViewById(R.id.strike_blue_competitor);
-        competitorRedStrikeView = findViewById(R.id.strike_red_competitor);
 
-        competitorBlueName = (EditText) findViewById(R.id.name_blue_competitor);
-        competitorRedName = (EditText) findViewById(R.id.name_red_competitor);
-
-        competitorBluePopUp = findViewById(R.id.name_blue);
-        competitorRedPopUp = findViewById(R.id.name_red);
+        // competitorBluePopUp = findViewById(R.id.name_blue);
+        // competitorRedPopUp = findViewById(R.id.name_red);
 
         //Get reference of the XML layout's widgets
-        final TextView tView = (TextView) findViewById(R.id.count_down);
-        final Button btnStart = (Button) findViewById(R.id.start);
-        final Button btnPause = (Button) findViewById(R.id.pause);
-        final Button btnResume = (Button) findViewById(R.id.resume);
-        final Button btnCancel = (Button) findViewById(R.id.cancel);
+        //tView = (TextView) findViewById(R.id.count_down);
 
+        btnStart = (Button) findViewById(R.id.start);
+        btnPause = (Button) findViewById(R.id.pause);
+        btnResume = (Button) findViewById(R.id.resume);
+        btnCancel = (Button) findViewById(R.id.cancel);
+    }
 
-        //Initially disabled the pause, resume and cancel button
-        btnPause.setEnabled(false);
-        btnResume.setEnabled(false);
-        btnCancel.setEnabled(false);
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        // Save away the original text, so we still have it if the activity
+        // needs to be killed while paused.
+        //  outState.putString("my_text", timeRemaining);
+        super.onSaveInstanceState(outState);
+        outState.putLong("my_int", timeRemaining);
+        outState.putInt("bluescore", competitorBlueScore);
+        outState.putInt("redscore", competitorRedScore);
+        outState.putInt("bluestrike", competitorBlueStrike);
+        outState.putInt("redstrike", competitorRedStrike);
+    }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // restore saved values
 
-        //Set a Click Listener for start button
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        timeRemaining = savedInstanceState.getLong("my_int");
+        tView.setText(String.valueOf(timeRemaining / 1000));
 
-                isPaused = false;
-                isCanceled = false;
-
-                //Disable the start and pause button
-                btnStart.setEnabled(false);
-                btnResume.setEnabled(false);
-                //Enabled the pause and cancel button
-                btnPause.setEnabled(true);
-                btnCancel.setEnabled(true);
-
-                CountDownTimer timer;
-                long millisInFuture = 300000; //300 seconds
-                long countDownInterval = 1000; //1 second
-
-
-                //Initialize a new CountDownTimer instance
-                timer = new CountDownTimer(millisInFuture, countDownInterval) {
-                    public void onTick(long millisUntilFinished) {
-                        //do something in every tick
-                        if (isPaused || isCanceled) {
-                            //If the user request to cancel or paused the
-                            //CountDownTimer we will cancel the current instance
-                            cancel();
-                        } else {
-                            //Display the remaining seconds to app interface
-                            //1 second = 1000 milliseconds
-                            tView.setText("" + millisUntilFinished / 1000);
-                            //Put count down timer remaining time in a variable
-                            timeRemaining = millisUntilFinished;
-                        }
-                    }
-
-                    public void onFinish() {
-                        //Do something when count down finished
-                        tView.setText(R.string.done);
-
-                        //Enable the start button
-                        btnStart.setEnabled(true);
-                        //Disable the pause, resume and cancel button
-                        btnPause.setEnabled(false);
-                        btnResume.setEnabled(false);
-                        btnCancel.setEnabled(false);
-                    }
-                }.start();
+        competitorBlueScore = savedInstanceState.getInt("bluescore");
+        competitorBlueScoreView.setText(String.valueOf(competitorBlueScore));
+        competitorRedScore = savedInstanceState.getInt("redscore");
+        competitorRedScoreView.setText(String.valueOf(competitorRedScore));
+        competitorBlueStrike = savedInstanceState.getInt("bluestrike");
+        competitorBlueStrikeView.setText(String.valueOf(competitorBlueStrike));
+        competitorRedStrike = savedInstanceState.getInt("redstrike");
+        competitorRedStrikeView.setText(String.valueOf(competitorRedStrike));
+        new CountDownTimer(timeRemaining, 1000) {
+            public void onTick(long millisUntilFinished) {
+                //do something in every tick
+                if (isPaused || isCanceled) {
+                    //If the user request to cancel or paused the
+                    //CountDownTimer we will cancel the current instance
+                    cancel();
+                } else {
+                    //Display the remaining seconds to app interface
+                    //1 second = 1000 milliseconds
+                    tView.setText("" + millisUntilFinished / 1000);
+                    //Put count down timer remaining time in a variable
+                    timeRemaining = millisUntilFinished;
+                }
             }
-        });
 
-
-        //Set a Click Listener for pause button
-        btnPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //When user request to pause the CountDownTimer
-                isPaused = true;
-
-                //Enable the resume and cancel button
-                btnResume.setEnabled(true);
-                btnCancel.setEnabled(true);
-                //Disable the start and pause button
-                btnStart.setEnabled(false);
+            public void onFinish() {
+                //Do something when count down finished
+                tView.setText(R.string._300);
+                //Enable the start button
+                btnStart.setEnabled(true);
+                //Disable the pause, resume and cancel button
                 btnPause.setEnabled(false);
-            }
-
-
-        });
-
-        //Set a Click Listener for resume button
-        btnResume.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Disable the start and resume button
-                btnStart.setEnabled(false);
                 btnResume.setEnabled(false);
-                //Enable the pause and cancel button
-                btnPause.setEnabled(true);
-                btnCancel.setEnabled(true);
-
-                //Specify the current state is not paused and canceled.
-                isPaused = false;
-                isCanceled = false;
-
-                //Initialize a new CountDownTimer instance
-                long millisInFuture = timeRemaining;
-                long countDownInterval = 1000;
-                new CountDownTimer(millisInFuture, countDownInterval) {
-                    public void onTick(long millisUntilFinished) {
-                        //Do something in every tick
-                        if (isPaused || isCanceled) {
-                            //If user requested to pause or cancel the count down timer
-                            cancel();
-                        } else {
-                            tView.setText("" + millisUntilFinished / 1000);
-                            //Put count down timer remaining time in a variable
-                            timeRemaining = millisUntilFinished;
-                        }
-                    }
-
-                    public void onFinish() {
-                        //Do something when count down finished
-                        {
-                            tView.setText(R.string._300);
-                            if (competitorBlueScore > competitorRedScore) showWinnerBlue();
-                            if (competitorRedScore > competitorBlueScore) showWinnerRed();
-                            if (competitorRedScore == competitorBlueScore)
-                                Toast.makeText(getApplicationContext(), R.string.next_point, Toast.LENGTH_LONG).show();
-                        }
-                        //Disable the pause, resume and cancel button
-                        btnPause.setEnabled(false);
-                        btnResume.setEnabled(false);
-                        btnCancel.setEnabled(false);
-                        //Enable the start button
-                        btnStart.setEnabled(true);
-                    }
-                }.start();
-
-                //Set a Click Listener for cancel/stop button
-                btnCancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //When user request to cancel the CountDownTimer
-                        isCanceled = true;
-
-                        //Disable the cancel, pause and resume button
-                        btnPause.setEnabled(false);
-                        btnResume.setEnabled(false);
-                        btnCancel.setEnabled(false);
-                        //Enable the start button
-                        btnStart.setEnabled(true);
-
-                        //Notify the user that CountDownTimer is canceled/stopped
-                        tView.setText(R.string._300);
-                    }
-                });
+                btnCancel.setEnabled(false);
             }
-        });
+        }.start();
+    }
 
-        //Set a Click Listener for cancel/stop button
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //When user request to cancel the CountDownTimer
-                isCanceled = true;
+    //      @Override
+    public void timerStart(View v) {
 
-                //Disable the cancel, pause and resume button
+        isPaused = false;
+        isCanceled = false;
+
+        //Disable the start and pause button
+        btnStart.setEnabled(false);
+        btnResume.setEnabled(false);
+        //Enabled the pause and cancel button
+        btnPause.setEnabled(true);
+        btnCancel.setEnabled(true);
+
+        CountDownTimer timer;
+        long millisInFuture = 300000; //300 seconds
+        long countDownInterval = 1000; //1 second
+
+
+        //Initialize a new CountDownTimer instance
+        timer = new CountDownTimer(millisInFuture, countDownInterval) {
+            public void onTick(long millisUntilFinished) {
+                //do something in every tick
+                if (isPaused || isCanceled) {
+                    //If the user request to cancel or paused the
+                    //CountDownTimer we will cancel the current instance
+                    cancel();
+                } else {
+                    //Display the remaining seconds to app interface
+                    //1 second = 1000 milliseconds
+                    tView.setText("" + millisUntilFinished / 1000);
+                    //Put count down timer remaining time in a variable
+                    timeRemaining = millisUntilFinished;
+                }
+            }
+
+            public void onFinish() {
+                //Do something when count down finished
+                tView.setText(R.string._300);
+
+                //Enable the start button
+                btnStart.setEnabled(true);
+                //Disable the pause, resume and cancel button
+                btnPause.setEnabled(false);
+                btnResume.setEnabled(false);
+                btnCancel.setEnabled(false);
+            }
+        }.start();
+    }
+
+    //      @Override
+    public void timerPause(View v) {
+        //When user request to pause the CountDownTimer
+        isPaused = true;
+
+        //Enable the resume and cancel button
+        btnResume.setEnabled(true);
+        btnCancel.setEnabled(true);
+        //Disable the start and pause button
+        btnStart.setEnabled(false);
+        btnPause.setEnabled(false);
+    }
+
+    //    @Override
+    public void timerResume(View v) {
+        //Disable the start and resume button
+        btnStart.setEnabled(false);
+        btnResume.setEnabled(false);
+        //Enable the pause and cancel button
+        btnPause.setEnabled(true);
+        btnCancel.setEnabled(true);
+
+        //Specify the current state is not paused and canceled.
+        isPaused = false;
+        isCanceled = false;
+
+        //Initialize a new CountDownTimer instance
+        long millisInFuture = timeRemaining;
+        long countDownInterval = 1000;
+        new CountDownTimer(millisInFuture, countDownInterval) {
+            public void onTick(long millisUntilFinished) {
+                //Do something in every tick
+                if (isPaused || isCanceled) {
+                    //If user requested to pause or cancel the count down timer
+                    cancel();
+                } else {
+                    tView.setText("" + millisUntilFinished / 1000);
+                    //Put count down timer remaining time in a variable
+                    timeRemaining = millisUntilFinished;
+                }
+            }
+
+            public void onFinish() {
+                //Do something when count down finished
+                {
+                    tView.setText(R.string._300);
+                    if (competitorBlueScore > competitorRedScore) showWinnerBlue();
+                    if (competitorRedScore > competitorBlueScore) showWinnerRed();
+                    if (competitorRedScore == competitorBlueScore)
+                        Toast.makeText(getApplicationContext(), R.string.next_point, Toast.LENGTH_LONG).show();
+                }
+                //Disable the pause, resume and cancel button
                 btnPause.setEnabled(false);
                 btnResume.setEnabled(false);
                 btnCancel.setEnabled(false);
                 //Enable the start button
                 btnStart.setEnabled(true);
-
-                //Notify the user that CountDownTimer is canceled/stopped
-                tView.setText(R.string._300);
             }
-        });
-
+        }.start();
     }
 
+    //       @Override
+    public void timerStop(View v) {
+        //When user request to cancel the CountDownTimer
+        isCanceled = true;
+
+        //Disable the cancel, pause and resume button
+        btnPause.setEnabled(false);
+        btnResume.setEnabled(false);
+        btnCancel.setEnabled(false);
+        //Enable the start button
+        btnStart.setEnabled(true);
+
+        //Notify the user that CountDownTimer is canceled/stopped
+        tView.setText(R.string._300);
+    }
 
     public void blueScoreCountOne(View v) {
         competitorBlueScore = competitorBlueScore + 1;
@@ -256,7 +289,6 @@ public class Main2Activity extends AppCompatActivity {
         if (competitorBlueScore >= 5) {
             showWinnerBlue();
         }
-
     }
 
     public void blueStrike(View v) {
@@ -272,7 +304,6 @@ public class Main2Activity extends AppCompatActivity {
         if (competitorBlueStrike >= 3) {
             showWinnerRed();
         }
-
     }
 
     public void redScoreCountOne(View v) {
@@ -289,7 +320,6 @@ public class Main2Activity extends AppCompatActivity {
         if (competitorRedScore >= 5) {
             showWinnerRed();
         }
-
     }
 
     public void redStrike(View view) {
@@ -305,7 +335,6 @@ public class Main2Activity extends AppCompatActivity {
         if (competitorRedStrike >= 3) {
             showWinnerBlue();
         }
-
     }
 
     public void showWinnerBlue() {
